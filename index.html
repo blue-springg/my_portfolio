@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
   <title>Haniyeh Parsa | Portfolio</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -19,8 +19,9 @@
       box-sizing: border-box;
     }
 
+    /* Background diagonal split */
     body {
-      background-color: #fff;
+      background: linear-gradient(to bottom right, #ffffff 50%, #000000 50%);
       color: #000;
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
@@ -36,15 +37,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: white;
+      background: transparent; /* transparent so diagonal bg shows */
       color: black;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Poppins', sans-serif;
-      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3.5rem;
       z-index: 9999;
       animation: fadeOut 2s ease 1s forwards;
+      text-align: center;
+      padding: 0 15px;
     }
 
     @keyframes fadeOut {
@@ -67,27 +71,40 @@
       border-bottom: 1px solid #ccc;
     }
 
-    .top-nav .nav-left a {
-      text-decoration: none;
-      color: #000;
-      margin-right: 20px;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-
-    .top-nav .nav-left a:hover {
-      color: #007acc;
-    }
-
-    .top-nav .nav-right {
+    /* Left side: MY PORTFOLIO */
+    .top-nav .nav-left {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       text-transform: uppercase;
       font-size: 1rem;
       color: #444;
+      cursor: default;
+      user-select: none;
+    }
+
+    /* Right side: Menu links */
+    .top-nav .nav-right {
+      display: flex;
+      gap: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .top-nav .nav-right a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .top-nav .nav-right a:hover {
+      color: #007acc;
     }
 
     /* Main Layout */
@@ -262,13 +279,13 @@
 
   <!-- Navigation Bar -->
   <nav class="top-nav" aria-label="Main Navigation">
-    <div class="nav-left">
+    <div class="nav-left">MY PORTFOLIO</div>
+    <div class="nav-right">
       <a href="#about">ABOUT ME</a>
       <a href="#projects">PROJECTS</a>
       <a href="#skills">SKILLS</a>
       <a href="#experience">EXPERIENCE</a>
     </div>
-    <div class="nav-right">MY PORTFOLIO</div>
   </nav>
 
   <!-- Main Layout -->
@@ -301,19 +318,19 @@
         <div class="project">
           <h3>Parrot’s Night Scape</h3>
           <p>A simple flying game made with Scratch and JavaScript. Press space to keep the parrot flying and avoid obstacles.</p>
-          <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank">Play Game</a>
+          <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank" rel="noopener noreferrer">Play Game</a>
         </div>
 
         <div class="project">
           <h3>The First Forest – Fan Page</h3>
           <p>A fan website for a Chinese drama built using HTML and CSS as a course project.</p>
-          <a href="https://blue-springg.github.io/the-first-forest/" target="_blank">View Project</a>
+          <a href="https://blue-springg.github.io/the-first-forest/" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
 
         <div class="project">
           <h3>Interactive Persian Gallery</h3>
           <p>An interactive photo gallery of Takht-e Jamshid built using HTML, CSS, and JavaScript.</p>
-          <a href="https://blue-springg.github.io/interactive-persian-gallery/" target="_blank">View Project</a>
+          <a href="https://blue-springg.github.io/interactive-persian-gallery/" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </section>
 
@@ -387,8 +404,8 @@
   <!-- Footer Contact -->
   <footer>
     <a href="mailto:haniye.parsa933@gmail.com"><i class="fas fa-envelope"></i>haniye.parsa933@gmail.com</a> |
-    <a href="https://wa.me/989331202352" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a> |
-    <a href="https://t.me/haniye_parsa" target="_blank"><i class="fab fa-telegram"></i>Telegram</a>
+    <a href="https://wa.me/989331202352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>WhatsApp</a> |
+    <a href="https://t.me/haniye_parsa" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>Telegram</a>
   </footer>
 
   <!-- Back to Top Button -->
@@ -407,34 +424,44 @@
     });
 
     // Nav links
-    const navLinks = document.querySelectorAll('.top-nav .nav-left a');
+    const navLinks = document.querySelectorAll('.top-nav .nav-right a');
     const sections = document.querySelectorAll('section');
 
     navLinks.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
 
-        sections.forEach(section => {
-          section.classList.remove('visible-section', 'animated-section');
+        // Show clicked section, hide others
+        sections.forEach(sec => {
+          if (sec.id === targetId) {
+            sec.classList.add('visible-section', 'animated-section');
+            sec.setAttribute('tabindex', '0');
+            sec.focus();
+          } else {
+            sec.classList.remove('visible-section', 'animated-section');
+            sec.setAttribute('tabindex', '-1');
+          }
         });
 
-        const targetSection = document.getElementById(targetId);
-        targetSection.classList.add('visible-section', 'animated-section');
-        targetSection.focus();
-
+        // Smooth scroll to top of main layout container to see section
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
 
-    // Back to top
-    const backToTop = document.getElementById('backToTop');
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
 
     window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      if (window.scrollY > 400) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
     });
 
-    backToTop.addEventListener('click', () => {
+    backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
