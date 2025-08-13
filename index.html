@@ -2,83 +2,299 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Haniyeh Parsa | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base Styles */
+    body {
+      background-color: #fff;
+      color: #000;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Splash Screen */
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      z-index: 9999;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .top-nav .nav-left a {
+      text-decoration: none;
+      color: #000;
+      margin-right: 25px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .top-nav .nav-left a:hover {
+      color: #007acc;
+    }
+
+    .top-nav .nav-right {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: #444;
+      user-select: none;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: none;
+      scroll-margin-top: 80px; /* navbar height */
+    }
+
+    section.visible-section {
+      display: block;
+    }
+
+    /* Intro Text */
+    #about .intro-text {
+      text-align: center;
+      max-width: 700px;
+      margin: 60px auto 0 auto;
+    }
+
+    #about .intro-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #about .intro-text p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* Projects */
+    .project {
+      margin-bottom: 30px;
+    }
+
+    .project h3 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .project a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: flex-start;
+    }
+
+    .skill {
+      text-align: center;
+      width: 100px;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    .skill img {
+      width: 60px;
+      height: 60px;
+      filter: none; /* show full color icons */
+      margin-bottom: 6px;
+    }
+
+    /* Experience */
+    .experience-item {
+      margin-bottom: 25px;
+    }
+
+    /* Contact */
+    .contact-info {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-info li {
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+    }
+
+    .contact-info a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    #backToTop:hover {
+      background-color: #444;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Splash Screen -->
-  <div id="splash">
-    <h1>WELCOME</h1>
-  </div>
+  <div id="splash">WELCOME TO MY PORTFOLIO</div>
 
   <!-- Navigation Bar -->
-  <nav class="top-nav">
+  <nav class="top-nav" aria-label="Main Navigation">
     <div class="nav-left">
       <a href="#projects">PROJECTS</a>
       <a href="#skills">SKILLS</a>
       <a href="#experience">EXPERIENCE</a>
       <a href="#contact">CONTACT</a>
     </div>
+    <div class="nav-right" aria-label="Site Title">MY PORTFOLIO</div>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <h1>Haniyeh Parsa</h1>
-    <p>Aspiring Computer Scientist & Web Developer</p>
-  </header>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I'm <strong>Haniyeh Parsa</strong>, a passionate aspiring computer science student born in 2001.
-      I’ve completed a diploma and am applying for my Bachelor's in Computer Science.
-      I’ve explored Python and SQL, and I recently completed the <em>Web Design Specialization</em> from Michigan,
-      where I learned HTML, CSS, and JavaScript.
-    </p>
+  <!-- About Section (Homepage) -->
+  <section id="about" class="visible-section" tabindex="0" aria-label="About Me">
+    <div class="intro-text">
+      <h1>HELLO, MY NAME IS HANIYEH PARSA</h1>
+      <p>
+        I’m a passionate aspiring computer science student born in 2001.
+        I’ve completed a diploma and am applying for my Bachelor's in Computer Science.
+        I’ve explored Python and SQL, and I recently completed the <em>Web Design Specialization</em> from Michigan,
+        where I learned HTML, CSS, and JavaScript.
+      </p>
+    </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects">
+  <!-- Projects Section -->
+  <section id="projects" tabindex="0" aria-label="Projects">
     <h2>Projects</h2>
 
     <div class="project">
       <h3>Parrot’s Night Scape</h3>
       <p>A simple flying game made with Scratch and JavaScript. Press space to keep the parrot flying and avoid obstacles.</p>
-      <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank">Play Game</a>
+      <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank" rel="noopener noreferrer">Play Game</a>
     </div>
 
     <div class="project">
       <h3>The First Forest – Fan Page</h3>
       <p>A fan website for a Chinese drama built using HTML and CSS as a course project.</p>
-      <a href="https://blue-springg.github.io/the-first-forest/" target="_blank">View Project</a>
+      <a href="https://blue-springg.github.io/the-first-forest/" target="_blank" rel="noopener noreferrer">View Project</a>
     </div>
 
     <div class="project">
       <h3>Interactive Persian Gallery</h3>
       <p>An interactive photo gallery of Takht-e Jamshid built using HTML, CSS, and JavaScript.</p>
-      <a href="https://blue-springg.github.io/interactive-persian-gallery/" target="_blank">View Project</a>
+      <a href="https://blue-springg.github.io/interactive-persian-gallery/" target="_blank" rel="noopener noreferrer">View Project</a>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
+  <!-- Skills Section -->
+  <section id="skills" tabindex="0" aria-label="Skills">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /><p>Python</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" /><p>HTML</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" /><p>CSS</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /><p>JavaScript</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" /><p>SQL (Basic)</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftoffice/microsoftoffice-original.svg" alt="Excel" /><p>Excel</p></div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+        <p>Python</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+        <p>HTML</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+        <p>CSS</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+        <p>JavaScript</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
+        <p>SQL (Basic)</p>
+      </div>
+      <div class="skill">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftexcel/microsoftexcel-original.svg" alt="Excel" />
+        <p>Excel</p>
+      </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience">
+  <!-- Experience Section -->
+  <section id="experience" tabindex="0" aria-label="Experience">
     <h2>Experience</h2>
 
     <div class="experience-item">
@@ -111,39 +327,82 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
+  <!-- Contact Section -->
+  <section id="contact" tabindex="0" aria-label="Contact Me">
     <h2>Contact Me</h2>
     <ul class="contact-info">
       <li><strong>Email:</strong> <a href="mailto:haniye.parsa933@gmail.com">haniye.parsa933@gmail.com</a></li>
-      <li><strong>WhatsApp:</strong> <a href="https://wa.me/989331202352" target="_blank">+98 933 120 2352</a></li>
-      <li><strong>Telegram:</strong> <a href="https://t.me/haniye_parsa" target="_blank">@haniye_parsa</a></li>
+      <li><strong>WhatsApp:</strong> <a href="https://wa.me/989331202352" target="_blank" rel="noopener noreferrer">+98 933 120 2352</a></li>
+      <li><strong>Telegram:</strong> <a href="https://t.me/haniye_parsa" target="_blank" rel="noopener noreferrer">@haniye_parsa</a></li>
     </ul>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Haniyeh Parsa. All rights reserved.</p>
-  </footer>
-
   <!-- Back to Top Button -->
-  <button id="backToTop" title="Back to Top">↑</button>
+  <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for Section Navigation and Splash -->
   <script>
-    const backToTop = document.getElementById("backToTop");
+    // Splash Screen fade-out
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash');
+        splash.style.transition = 'opacity 1s ease';
+        splash.style.opacity = '0';
+        setTimeout(() => splash.style.display = 'none', 1000);
+      }, 2000);
+    });
 
-    window.onscroll = function () {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTop.style.display = "block";
+    // Navigation links
+    const navLinks = document.querySelectorAll('.top-nav .nav-left a');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+
+        // Show only target section
+        sections.forEach(section => {
+          if (section.id === targetId) {
+            section.classList.add('visible-section');
+            section.focus();
+          } else {
+            section.classList.remove('visible-section');
+          }
+        });
+
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Show about section on page load after splash fade
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        sections.forEach(section => {
+          if(section.id === 'about') {
+            section.classList.add('visible-section');
+          } else {
+            section.classList.remove('visible-section');
+          }
+        });
+      }, 2500);
+    });
+
+    // Back to top button logic
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
       } else {
-        backToTop.style.display = "none";
+        backToTop.style.display = 'none';
       }
-    };
+    });
 
-    backToTop.onclick = function () {
+    backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    });
   </script>
 
 </body>
