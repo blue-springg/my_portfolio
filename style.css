@@ -1,5 +1,5 @@
-/* Import Playfair Display font for splash */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&family=Poppins:wght@600&display=swap');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&family=Playfair+Display:wght@700&display=swap');
 
 /* Reset */
 * {
@@ -8,9 +8,10 @@
   box-sizing: border-box;
 }
 
+/* BODY BACKGROUND: white with subtle black fade from the right */
 body {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.08), #ffffff 30%, #ffffff 100%);
-  color: #000000;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.1) 0%, #ffffff 25%, #ffffff 100%);
+  color: #000;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
@@ -18,15 +19,14 @@ body {
   flex-direction: column;
 }
 
-
-/* Splash Screen */
+/* Splash screen */
 #splash {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: white; /* FULL WHITE background to block anything behind */
+  background: white;
   color: black;
   display: flex;
   justify-content: center;
@@ -36,8 +36,6 @@ body {
   font-weight: 700;
   z-index: 9999;
   animation: fadeOut 2s ease 1s forwards;
-  text-align: center;
-  padding: 0 15px;
 }
 
 @keyframes fadeOut {
@@ -60,18 +58,14 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-/* Left side: "MY PORTFOLIO" text */
 .top-nav .nav-left {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1rem;
   color: #444;
-  user-select: none;
-  cursor: default;
 }
 
-/* Right side: menu links */
 .top-nav .nav-right {
   display: flex;
   gap: 25px;
@@ -87,8 +81,6 @@ body {
   color: #000;
   font-weight: 600;
   letter-spacing: 1px;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
   transition: color 0.3s ease;
 }
 
@@ -96,10 +88,10 @@ body {
   color: #007acc;
 }
 
-/* Main Layout */
+/* Layout */
 .main-layout {
   display: flex;
-  justify-content: flex-start;  /* pushed content to left */
+  justify-content: space-between;
   gap: 40px;
   padding: 40px 20px;
   max-width: 1200px;
@@ -107,12 +99,10 @@ body {
   flex: 1;
 }
 
-/* Left Panel (About) */
 #about {
   flex: 1;
   min-width: 300px;
   max-width: 400px;
-  margin-right: 60px; /* added margin to push it left */
 }
 
 #about .intro-text h1 {
@@ -152,7 +142,6 @@ body {
   background-color: #333;
 }
 
-/* Right Content Sections */
 .right-sections {
   flex: 2;
   display: flex;
@@ -161,8 +150,8 @@ body {
 }
 
 section {
-  scroll-margin-top: 80px;
   display: none;
+  scroll-margin-top: 80px;
 }
 
 section.visible-section {
@@ -184,7 +173,7 @@ section.animated-section {
   }
 }
 
-/* Section Headings */
+/* Headings */
 h2 {
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
@@ -194,31 +183,6 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* Projects and Experience */
-.project,
-.experience-item {
-  margin-bottom: 20px;
-}
-
-/* Skills Section */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.skill {
-  text-align: center;
-  width: 100px;
-  font-size: 0.9rem;
-}
-
-.skill img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 6px;
-}
-
 /* Footer */
 footer {
   background-color: #f9f9f9;
@@ -226,26 +190,27 @@ footer {
   text-align: center;
   font-size: 0.95rem;
   border-top: 1px solid #ddd;
-  color: #000;
+  margin-top: auto;
 }
 
 footer a {
-  color: #000;
   text-decoration: none;
-  margin: 0 8px;
+  color: #000;
+  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
-  text-decoration: underline;
-  color: #333;
+  color: #007acc;
 }
 
 footer i {
-  margin-right: 6px;
+  margin-right: 5px;
 }
 
-/* Back to Top Button */
+/* Back to top */
 #backToTop {
+  display: none;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -253,11 +218,11 @@ footer i {
   color: #fff;
   border: none;
   padding: 12px 16px;
-  border-radius: 50%;
   font-size: 20px;
+  border-radius: 50%;
   cursor: pointer;
-  display: none;
-  z-index: 999;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
 #backToTop:hover {
