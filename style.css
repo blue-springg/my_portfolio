@@ -1,3 +1,6 @@
+/* Import Playfair Display font for splash */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&family=Poppins:wght@600&display=swap');
+
 /* Reset */
 * {
   margin: 0;
@@ -5,8 +8,10 @@
   box-sizing: border-box;
 }
 
+/* Diagonal split background */
 body {
-  background-color: #ffffff;
+  /* diagonal split from white (left) to black (right) */
+  background: linear-gradient(to bottom right, #ffffff 50%, #000000 50%);
   color: #000000;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
@@ -22,15 +27,18 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
+  background: transparent; /* transparent so background shows through */
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
   z-index: 9999;
   animation: fadeOut 2s ease 1s forwards;
+  text-align: center;
+  padding: 0 15px;
 }
 
 @keyframes fadeOut {
@@ -53,26 +61,40 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-.top-nav .nav-left a {
-  text-decoration: none;
-  color: #000;
-  margin-right: 20px;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.top-nav .nav-left a:hover {
-  color: #007acc;
-}
-
-.top-nav .nav-right {
+/* Left side: "MY PORTFOLIO" text */
+.top-nav .nav-left {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1rem;
   color: #444;
+  user-select: none;
+  cursor: default;
+}
+
+/* Right side: menu links */
+.top-nav .nav-right {
+  display: flex;
+  gap: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #444;
+}
+
+.top-nav .nav-right a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.top-nav .nav-right a:hover {
+  color: #007acc;
 }
 
 /* Main Layout */
