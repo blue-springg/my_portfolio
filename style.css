@@ -8,10 +8,8 @@
   box-sizing: border-box;
 }
 
-/* Diagonal split background */
 body {
-  /* diagonal split from white (left) to black (right) */
-  background: linear-gradient(to bottom right, #ffffff 50%, #000000 50%);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.08), #ffffff 30%, #ffffff 100%);
   color: #000000;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
@@ -19,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 
 /* Splash Screen */
 #splash {
