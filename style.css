@@ -8,16 +8,18 @@
   box-sizing: border-box;
 }
 
-/* BODY BACKGROUND: white with subtle black fade from the right */
+/* Subtle diagonal background fade */
 body {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.1) 0%, #ffffff 25%, #ffffff 100%);
+  background: linear-gradient(to bottom right, #ffffff 60%, #111111);
   color: #000;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background 1s ease-in-out;
 }
+
 
 /* Splash screen */
 #splash {
