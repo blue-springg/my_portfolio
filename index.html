@@ -176,22 +176,6 @@
       font-size: 1.1rem;
     }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background-color: #000;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Poppins', sans-serif;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .download-btn:hover {
-      background-color: #333;
-    }
 
     /* Headings */
     h2 {
@@ -278,15 +262,13 @@
   <div id="splash">WELCOME TO MY PORTFOLIO</div>
 
   <!-- Navigation Bar -->
-  <nav class="top-nav" aria-label="Main Navigation">
-    <div class="nav-left">MY PORTFOLIO</div>
-    <div class="nav-right">
-      <a href="#about">ABOUT ME</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-    </div>
-  </nav>
+<div class="nav-right">
+  <a href="#about">ABOUT ME</a>
+  <a href="#experience">EXPERIENCE</a>
+  <a href="#skills">SKILLS</a>
+  <a href="#cv">CV</a> 
+  <a href="#projects">PROJECTS</a>
+</div>
 
   <!-- Main Layout -->
   <div class="main-layout">
@@ -303,10 +285,6 @@
           I’ve explored Python and SQL.
         </p>
 
-        <!-- Download CV Button -->
-        <a href="your-cv.pdf" download class="download-btn">Download CV</a>
-      </div>
-    </section>
 
     <!-- Right Sections -->
     <div class="right-sections">
@@ -370,6 +348,32 @@
         </div>
       </section>
 
+<!-- CV Section -->
+<section id="cv" tabindex="0" aria-label="CV" >
+  <h2>CV</h2>
+
+  <h3>Certifications</h3>
+  <ol>
+    <li><strong>Machine Learning</strong> – Stanford University (Coursera)</li>
+    <li><strong>Python for Everybody</strong> – University of Michigan (Coursera)</li>
+    <li><strong>Web Design for Everybody: Basics of Web Development & Coding</strong> – University of Michigan (Coursera)</li>
+    <li><strong>Google Analytics Certification</strong> – Google</li>
+    <li><strong>Conversion Optimization Certification</strong> – Google</li>
+    <li><strong>Introduction to Cybersecurity</strong> – Cisco Networking Academy</li>
+    <li><strong>Elements of AI</strong> – University of Helsinki</li>
+    <li><strong>Build a Free Website with WordPress</strong> – Coursera Project</li>
+    <li><strong>Getting Started with Microsoft Excel</strong> – Coursera Project Network</li>
+    <li><strong>The History and Aesthetics of Korean Hanbok</strong> – Online workshop, Department of World Studies, University of Tehran</li>
+  </ol>
+
+  <h3>Language Certifications</h3>
+  <ul>
+    <li><strong>IELTS</strong> – [Your Score], [Date]</li>
+    <li><strong>TOPIK (Test of Proficiency in Korean)</strong> – [Your Level], [Date]</li>
+  </ul>
+</section>
+
+      
       <!-- Projects Section -->
       <section id="projects" tabindex="0" aria-label="Projects">
         <h2>Projects</h2>
