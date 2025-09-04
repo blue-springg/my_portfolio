@@ -20,16 +20,15 @@
     }
 
     /* Background diagonal split */
-body {
-  background-color: #ffffff;
-  color: #000;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
+    body {
+      background-color: #ffffff;
+      color: #000;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
     /* Splash Screen */
     #splash {
@@ -283,9 +282,9 @@ body {
     <div class="nav-left">MY PORTFOLIO</div>
     <div class="nav-right">
       <a href="#about">ABOUT ME</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#skills">SKILLS</a>
       <a href="#experience">EXPERIENCE</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
     </div>
   </nav>
 
@@ -301,8 +300,7 @@ body {
         <p>
           I’m a passionate aspiring computer science student born in 2001.
           I’ve completed a diploma and am applying for my Bachelor's in Computer Science.
-          I’ve explored Python and SQL, and I recently completed the <em>Web Design Specialization</em> from Michigan,
-          where I learned HTML, CSS, and JavaScript.
+          I’ve explored Python and SQL.
         </p>
 
         <!-- Download CV Button -->
@@ -312,31 +310,34 @@ body {
 
     <!-- Right Sections -->
     <div class="right-sections">
-      <!-- Projects Section -->
-      <section id="projects" tabindex="0" aria-label="Projects">
-        <h2>Projects</h2>
+      <!-- Experience Section -->
+      <section id="experience" tabindex="0" aria-label="Experience">
+        <h2>Experience</h2>
 
-        <div class="project">
-          <h3>Parrot’s Night Scape</h3>
-          <p>A simple flying game made with Scratch and JavaScript. Press space to keep the parrot flying and avoid obstacles.</p>
-          <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank" rel="noopener noreferrer">Play Game</a>
+        <div class="experience-item">
+          <h3>English Teacher & Private Tutor</h3>
+          <p>Taught English to students of all ages. Helped them plan studies and improve academic performance.</p>
         </div>
 
-        <div class="project">
-          <h3>The First Forest – Fan Page</h3>
-          <p>A fan website for a Chinese drama built using HTML and CSS as a course project.</p>
-          <a href="https://blue-springg.github.io/the-first-forest/" target="_blank" rel="noopener noreferrer">View Project</a>
+        <div class="experience-item">
+          <h3>Volunteer – School Dental Program</h3>
+          <p>Assisted in varnishing teeth and promoting hygiene during school visits.</p>
         </div>
 
-  <div class="project">
-    <h3>Mood Booster App (Python)</h3>
-    <p>A motivational quote and music recommender built with Python. Select a mood (Happy, Sad, Angry, Stressed, Unmotivated), and get personalized quotes and music suggestions.</p>
-    <ul>
-      <li><a href="https://colab.research.google.com/drive/1tILdMOqUn_TRbn66jHTo0HGMu5fG9KMU?usp=sharing" target="_blank" rel="noopener noreferrer">Try it live on Google Colab</a></li>
-      <li><a href="#" target="_blank" rel="noopener noreferrer">View the code on GitHub</a></li> <!-- Replace # with your repo link -->
-    </ul>
-  </div>
-</section>
+        <div class="experience-item">
+          <h3>Café Work</h3>
+          <p>Worked short-term in a café, gaining communication and multitasking experience.</p>
+        </div>
+
+        <div class="experience-item">
+          <h3>Language & Personal Growth</h3>
+          <ul>
+            <li>Scored 6.5 in IELTS after one month of study</li>
+            <li>Took TOPIK exam in Turkey and scored 111; aiming for Level 3</li>
+            <li>Traveled solo to Turkey for the exam – a personal milestone</li>
+          </ul>
+        </div>
+      </section>
 
       <!-- Skills Section -->
       <section id="skills" tabindex="0" aria-label="Skills">
@@ -369,36 +370,28 @@ body {
         </div>
       </section>
 
-      <!-- Experience Section -->
-      <section id="experience" tabindex="0" aria-label="Experience">
-        <h2>Experience</h2>
+      <!-- Projects Section -->
+      <section id="projects" tabindex="0" aria-label="Projects">
+        <h2>Projects</h2>
 
-        <div class="experience-item">
-          <h3>Web Design Specialization – University of Michigan</h3>
-          <p>Completed a hands-on course in HTML, CSS, and JavaScript. Created responsive websites and interactive elements.</p>
+        <div class="project">
+          <h3>Parrot’s Night Scape</h3>
+          <p>A simple flying game made with Scratch and JavaScript. Press space to keep the parrot flying and avoid obstacles.</p>
+          <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank" rel="noopener noreferrer">Play Game</a>
         </div>
 
-        <div class="experience-item">
-          <h3>English Teacher & Private Tutor</h3>
-          <p>Taught English to students of all ages. Helped them plan studies and improve academic performance.</p>
+        <div class="project">
+          <h3>The First Forest – Fan Page</h3>
+          <p>A fan website for a Chinese drama built using HTML and CSS as a course project.</p>
+          <a href="https://blue-springg.github.io/the-first-forest/" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
 
-        <div class="experience-item">
-          <h3>Volunteer – School Dental Program</h3>
-          <p>Assisted in varnishing teeth and promoting hygiene during school visits.</p>
-        </div>
-
-        <div class="experience-item">
-          <h3>Café Work</h3>
-          <p>Worked short-term in a café, gaining communication and multitasking experience.</p>
-        </div>
-
-        <div class="experience-item">
-          <h3>Language & Personal Growth</h3>
+        <div class="project">
+          <h3>Mood Booster App (Python)</h3>
+          <p>A motivational quote and music recommender built with Python. Select a mood (Happy, Sad, Angry, Stressed, Unmotivated), and get personalized quotes and music suggestions.</p>
           <ul>
-            <li>Scored 6.5 in IELTS after one month of study</li>
-            <li>Took TOPIK exam in Turkey and scored 111; aiming for Level 3</li>
-            <li>Traveled solo to Turkey for the exam – a personal milestone</li>
+            <li><a href="https://colab.research.google.com/drive/1tILdMOqUn_TRbn66jHTo0HGMu5fG9KMU?usp=sharing" target="_blank" rel="noopener noreferrer">Try it live on Google Colab</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">View the code on GitHub</a></li> <!-- Replace # with your repo link -->
           </ul>
         </div>
       </section>
