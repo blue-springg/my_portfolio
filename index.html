@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,264 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* [Keep all your CSS here, updated version provided below] */
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Background diagonal split */
+    body {
+      background-color: #ffffff;
+      color: #000;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Splash Screen */
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent; /* transparent so diagonal bg shows */
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3.5rem;
+      z-index: 9999;
+      animation: fadeOut 2s ease 1s forwards;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Left side: MY PORTFOLIO */
+    .top-nav .nav-left {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: #444;
+      cursor: default;
+      user-select: none;
+    }
+
+    /* Right side: Menu links */
+    .top-nav .nav-right {
+      display: flex;
+      gap: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .top-nav .nav-right a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .top-nav .nav-right a:hover {
+      color: #007acc;
+    }
+
+    /* Main Layout */
+    .main-layout {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    #about {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .right-sections {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+      display: none;
+    }
+
+    section.visible-section {
+      display: block;
+    }
+
+    section.animated-section {
+      animation: slideUpFade 0.6s ease both;
+    }
+
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Me */
+    #about .intro-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #about .intro-text h1 span {
+      font-size: 2rem;
+      display: block;
+      margin-top: 10px;
+      text-transform: none;
+      letter-spacing: 1px;
+    }
+
+    #about .intro-text p {
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #333;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project, .experience-item {
+      margin-bottom: 20px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .skill {
+      text-align: center;
+      width: 100px;
+      font-size: 0.9rem;
+    }
+
+    .skill img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f9f9f9;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid #ddd;
+      color: #000;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #333;
+    }
+
+    footer i {
+      margin-right: 6px;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    #backToTop:hover {
+      background-color: #444;
+    }
   </style>
 </head>
 
@@ -45,6 +303,9 @@
           I’ve completed a diploma and am applying for my Bachelor's in Computer Science.
           I’ve explored Python and SQL.
         </p>
+
+        <!-- Download CV Button -->
+        <a href="your-cv.pdf" download class="download-btn">Download CV</a>
       </div>
     </section>
 
@@ -131,7 +392,7 @@
           <p>A motivational quote and music recommender built with Python. Select a mood (Happy, Sad, Angry, Stressed, Unmotivated), and get personalized quotes and music suggestions.</p>
           <ul>
             <li><a href="https://colab.research.google.com/drive/1tILdMOqUn_TRbn66jHTo0HGMu5fG9KMU?usp=sharing" target="_blank" rel="noopener noreferrer">Try it live on Google Colab</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">View the code on GitHub</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">View the code on GitHub</a></li> <!-- Replace # with your repo link -->
           </ul>
         </div>
       </section>
@@ -144,6 +405,9 @@
     <a href="https://wa.me/989331202352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>WhatsApp</a> |
     <a href="https://t.me/haniye_parsa" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>Telegram</a>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
 
   <!-- JavaScript -->
   <script>
@@ -179,8 +443,24 @@
           }
         });
 
+        // Smooth scroll to top of main layout container to see section
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    });
+
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
