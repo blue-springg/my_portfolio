@@ -251,30 +251,8 @@
       margin-right: 6px;
     }
 
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-    }
 
-    #backToTop:hover {
-      background-color: #444;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Splash Screen -->
+    <!-- Splash Screen -->
   <div id="splash">WELCOME TO MY PORTFOLIO</div>
 
   <!-- Navigation Bar -->
@@ -302,11 +280,6 @@
           I’ve completed a diploma and am applying for my Bachelor's in Computer Science.
           I’ve explored Python and SQL.
         </p>
-
-        <!-- Download CV Button -->
-        <a href="your-cv.pdf" download class="download-btn">Download CV</a>
-      </div>
-    </section>
 
     <!-- Right Sections -->
     <div class="right-sections">
@@ -405,20 +378,6 @@
     <a href="https://t.me/haniye_parsa" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>Telegram</a>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
-
-  <!-- JavaScript -->
-  <script>
-    // Splash
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('splash').style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('splash').style.display = 'none';
-        }, 1000);
-      }, 2000);
-    });
 
     // Nav links
     const navLinks = document.querySelectorAll('.top-nav .nav-right a');
@@ -447,20 +406,6 @@
       });
     });
 
-    // Back to top button
-    const backToTopBtn = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.style.display = 'block';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
   </script>
 </body>
 </html>
