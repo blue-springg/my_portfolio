@@ -210,23 +210,44 @@ footer i {
   margin-right: 5px;
 }
 
-/* Back to top */
-#backToTop {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 12px 16px;
-  font-size: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 1000;
+/* Night Mode */
+body.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
 }
 
-#backToTop:hover {
-  background-color: #444;
+/* Adjust top nav for night mode */
+body.dark-mode .top-nav {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .top-nav .nav-right a,
+body.dark-mode .top-nav .nav-left {
+  color: #ddd;
+}
+
+body.dark-mode footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  border-top: 1px solid #444;
+}
+
+body.dark-mode footer a {
+  color: #ccc;
+}
+
+/* Moon Button Styling */
+#toggle-night-mode {
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode #toggle-night-mode {
+  color: #f1f1f1;
 }
