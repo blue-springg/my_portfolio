@@ -1,14 +1,11 @@
-/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&family=Playfair+Display:wght@700&display=swap');
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Subtle diagonal background fade */
 body {
   background: linear-gradient(to bottom right, #ffffff 60%, #111111);
   color: #000;
@@ -20,8 +17,7 @@ body {
   transition: background 1s ease-in-out;
 }
 
-
-/* Splash screen */
+/* Splash screen animation */
 #splash {
   position: fixed;
   top: 0;
@@ -47,7 +43,7 @@ body {
   }
 }
 
-/* Navigation */
+/* Top navigation */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -90,70 +86,59 @@ body {
   color: #007acc;
 }
 
-/* Layout */
+/* Main layout */
 .main-layout {
   display: flex;
   justify-content: space-between;
   gap: 40px;
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   flex: 1;
+  margin-left: 200px; /* Space for sidebar */
 }
 
+/* About section */
 #about {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
+  flex: 3;
+  min-width: 100px;
+  margin-left: 40px;
 }
 
 #about .intro-text h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-align: left;
 }
 
 #about .intro-text h1 span {
-  font-size: 2rem;
+  font-size: 1.4rem;
   display: block;
   margin-top: 10px;
   text-transform: none;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  text-align: left;
 }
 
 #about .intro-text p {
-  margin-top: 20px;
-  font-size: 1.1rem;
+  width: 70vw;
+  max-width: none;
 }
 
-.download-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 24px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.download-btn:hover {
-  background-color: #333;
-}
-
+/* Right sections */
 .right-sections {
   flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 }
 
+/* Section visibility */
 section {
   display: none;
   scroll-margin-top: 80px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
 }
 
 section.visible-section {
@@ -173,6 +158,25 @@ section.animated-section {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skill {
+  text-align: center;
+  width: 100px;
+  font-size: 0.9rem;
+}
+
+.skill img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 6px;
 }
 
 /* Headings */
@@ -210,13 +214,12 @@ footer i {
   margin-right: 5px;
 }
 
-/* Night Mode */
+/* Dark Mode */
 body.dark-mode {
   background: #121212;
   color: #f1f1f1;
 }
 
-/* Adjust top nav for night mode */
 body.dark-mode .top-nav {
   background-color: #1f1f1f;
   border-bottom: 1px solid #444;
@@ -237,7 +240,6 @@ body.dark-mode footer a {
   color: #ccc;
 }
 
-/* Moon Button Styling */
 #toggle-night-mode {
   background: none;
   border: none;
@@ -250,4 +252,217 @@ body.dark-mode footer a {
 
 body.dark-mode #toggle-night-mode {
   color: #f1f1f1;
+}
+
+/* ------------------------------ */
+/* Sidebar with Centered Content */
+/* ------------------------------ */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100% - 60px);
+  width: 200px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* ✅ Center links horizontally */
+  justify-content: flex-start;
+  text-align: center;      /* ✅ Center text inside links */
+  gap: 20px;
+  padding: 30px 15px;
+  z-index: 999;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  width: 100%;
+}
+
+.sidebar a:hover {
+  color: #007acc;
+}
+
+/* Dark mode for sidebar */
+body.dark-mode .sidebar {
+  background-color: #1f1f1f;
+  border-right: 1px solid #444;
+}
+
+body.dark-mode .sidebar a {
+  color: #ddd;
+}
+
+body.dark-mode .sidebar a:hover {
+  color: #66b2ff;
+}
+
+/* ------------------------------ */
+/* Responsive Design */
+/* ------------------------------ */
+
+/* Tablets and small laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-layout {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 40px;
+    margin-left: 200px;
+  }
+
+  #about {
+    margin-left: 0;
+    padding: 0 30px;
+  }
+
+  .right-sections {
+    padding: 0 30px;
+    margin-top: 30px;
+  }
+
+  .top-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 25px;
+  }
+
+  #about .intro-text p {
+    width: 100%;
+  }
+
+  .skills-grid {
+    justify-content: center;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;   /* ✅ Center links on mobile */
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    text-align: center;
+  }
+
+  .sidebar a {
+    margin-right: 15px;
+    font-size: 0.9rem;
+    width: auto;
+  }
+
+  .main-layout {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  #about {
+    margin-left: 0;
+    padding: 0 20px;
+  }
+
+  .right-sections {
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .top-nav .nav-right {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skills-grid {
+    justify-content: center;
+  }
+
+  .skill {
+    width: 80px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  #about .intro-text h1 {
+    font-size: 1.5rem;
+  }
+
+  #about .intro-text h1 span {
+    font-size: 1rem;
+  }
+
+  #about .intro-text p {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .top-nav .nav-left {
+    font-size: 0.9rem;
+  }
+
+  .top-nav .nav-right {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+
+  #about .intro-text h1 {
+    font-size: 1.2rem;
+  }
+
+  #about .intro-text h1 span {
+    font-size: 0.9rem;
+  }
+
+  #about .intro-text p {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .skill {
+    width: 70px;
+    font-size: 0.8rem;
+  }
+
+  .skill img {
+    width: 50px;
+    height: 50px;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
 }
