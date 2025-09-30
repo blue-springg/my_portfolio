@@ -1,478 +1,188 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(to bottom right, #ffffff 60%, #111111);
-  color: #000;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: background 1s ease-in-out;
-}
-
-/* Splash screen animation */
-#splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  z-index: 9999;
-  animation: fadeOut 2s ease 1s forwards;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-/* Main layout */
-.main-layout {
-  padding: 40px 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-  margin-left: 200px; /* Space for sidebar */
-}
-
-/* About section */
-#about {
-  max-width: 1000px;
-  margin: 40px 0;
-  padding-left: 220px; /* Offset to clear sidebar */
-  padding-right: 20px;
-}
-
-#about .intro-text h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: left;
-}
-
-#about .intro-text h1 span {
-  font-size: 1.4rem;
-  display: block;
-  margin-top: 10px;
-  text-transform: none;
-  letter-spacing: 0.5px;
-  text-align: left;
-}
-
-#about .intro-text p {
-  max-width: 800px;
-  margin: 15px 0;
-  font-size: 1.1rem;
-}
-
-/* Right sections */
-.right-sections {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Section visibility */
-section {
-  display: none;
-  scroll-margin-top: 80px;
-  padding: 0 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-section.visible-section {
-  display: block;
-  opacity: 1;
-}
-
-section.animated-section {
-  animation: slideUpFade 0.6s ease both;
-}
-
-@keyframes slideUpFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Skills */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-}
-
-.skill {
-  text-align: center;
-  width: 120px; /* Accommodates larger icons */
-  font-size: 0.9rem;
-}
-
-.skill i {
-  font-size: 3.5rem; /* Larger for visibility */
-  margin-bottom: 8px;
-  color: #000; /* Solid black in light mode */
-}
-
-body.dark-mode .skill i {
-  color: #f1f1f1; /* Solid white in dark mode */
-}
-
-/* Headings */
-h2 {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1.5rem;
-}
-
-/* Footer */
-footer {
-  background-color: #f9f9f9;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid #ddd;
-  margin-top: auto;
-}
-
-footer a {
-  text-decoration: none;
-  color: #000;
-  margin: 0 15px;
-  transition: color 0.3s ease, transform 0.2s ease;
-  font-size: 1.2rem;
-}
-
-footer a:hover {
-  color: #007acc;
-  transform: scale(1.2);
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background: #121212;
-  color: #f1f1f1;
-}
-
-body.dark-mode footer {
-  background-color: #1a1a1a;
-  color: #ccc;
-  border-top: 1px solid #444;
-}
-
-body.dark-mode footer a {
-  color: #ccc;
-}
-
-body.dark-mode footer a:hover {
-  color: #66b2ff;
-}
-
-#toggle-night-mode {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #444;
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  display: flex;
-  justify-content: center;
-}
-
-#toggle-night-mode:hover {
-  background-color: #e0e0e0;
-}
-
-body.dark-mode #toggle-night-mode {
-  color: #f1f1f1;
-}
-
-body.dark-mode #toggle-night-mode:hover {
-  background-color: #3a3a3a;
-}
-
-/* Sidebar with Centered Button-Like Links */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 180px;
-  background-color: #f5f5f5;
-  border-right: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  gap: 12px;
-  padding: 20px 10px;
-  z-index: 999;
-}
-
-.sidebar a {
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  color: #333;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  width: 100%;
-  padding: 10px 15px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.sidebar a i {
-  font-size: 1rem;
-}
-
-.sidebar a:hover {
-  background-color: #e0e0e0;
-  color: #007acc;
-  transform: translateY(-2px);
-}
-
-.sidebar a.active {
-  background-color: #007acc;
-  color: #ffffff;
-  border-color: #007acc;
-}
-
-/* Dark mode for sidebar */
-body.dark-mode .sidebar {
-  background-color: #1f1f1f;
-  border-right: 1px solid #444;
-}
-
-body.dark-mode .sidebar a {
-  color: #ddd;
-  background-color: #2a2a2a;
-  border: 1px solid #555;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-}
-
-body.dark-mode .sidebar a:hover {
-  background-color: #3a3a3a;
-  color: #66b2ff;
-}
-
-body.dark-mode .sidebar a.active {
-  background-color: #66b2ff;
-  color: #ffffff;
-  border-color: #66b2ff;
-}
-
-/* Responsive Design */
-
-/* Tablets and small laptops */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .main-layout {
-    padding: 30px 40px;
-    margin-left: 200px;
-  }
-
-  #about {
-    max-width: 800px;
-    margin: 30px 0;
-    padding-left: 220px;
-    padding-right: 30px;
-  }
-
-  .right-sections {
-    padding: 0 30px;
-    margin-top: 30px;
-  }
-
-  .skills-grid {
-    justify-content: center;
-  }
-
-  .skill {
-    width: 100px; /* Smaller to fit seven skills */
-  }
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-    padding: 15px;
-    background-color: #f5f5f5;
-    gap: 12px;
-  }
-
-  .sidebar a, .sidebar #toggle-night-mode {
-    margin: 5px;
-    font-size: 0.9rem;
-    width: auto;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  }
-
-  .sidebar a:hover, .sidebar #toggle-night-mode:hover {
-    background-color: #e0e0e0;
-    color: #007acc;
-    transform: scale(1.05);
-  }
-
-  .sidebar a.active {
-    background-color: #007acc;
-    color: #ffffff;
-    border-color: #007acc;
-  }
-
-  body.dark-mode .sidebar {
-    background-color: #1f1f1f;
-    border-bottom: 1px solid #444;
-  }
-
-  body.dark-mode .sidebar a, body.dark-mode .sidebar #toggle-night-mode {
-    color: #ddd;
-    background-color: #2a2a2a;
-    border: 1px solid #555;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  }
-
-  body.dark-mode .sidebar a:hover, body.dark-mode .sidebar #toggle-night-mode:hover {
-    background-color: #3a3a3a;
-    color: #66b2ff;
-  }
-
-  body.dark-mode .sidebar a.active {
-    background-color: #66b2ff;
-    color: #ffffff;
-    border-color: #66b2ff;
-  }
-
-  .main-layout {
-    margin-left: 0;
-    padding: 30px 20px;
-    padding-top: 80px;
-  }
-
-  #about {
-    max-width: 100%;
-    margin: 20px 0;
-    padding: 0 20px;
-  }
-
-  .right-sections {
-    margin-top: 20px;
-    padding: 0 20px;
-  }
-
-  .skills-grid {
-    justify-content: center;
-    gap: 15px; /* Slightly smaller gap for seven skills */
-  }
-
-  .skill {
-    width: 100px;
-  }
-
-  .skill i {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  #about .intro-text h1 {
-    font-size: 1.8rem;
-  }
-
-  #about .intro-text h1 span {
-    font-size: 1.2rem;
-  }
-
-  #about .intro-text p {
-    font-size: 1.05rem;
-  }
-
-  footer {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  #about .intro-text h1 {
-    font-size: 1.6rem;
-  }
-
-  #about .intro-text h1 span {
-    font-size: 1rem;
-  }
-
-  #about .intro-text p {
-    font-size: 0.95rem;
-  }
-
-  .skill {
-    width: 90px;
-    font-size: 0.85rem;
-  }
-
-  .skill i {
-    font-size: 2.5rem;
-  }
-
-  .skills-grid {
-    gap: 12px; /* Tighter for small screens */
-  }
-
-  footer {
-    font-size: 0.85rem;
-    padding: 8px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haniyeh Parsa | Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">WELCOME TO MY PORTFOLIO</div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <button id="toggle-night-mode" aria-label="Toggle night mode"><i class="fas fa-moon"></i></button>
+    <a href="#about"><i class="fas fa-user"></i> ABOUT ME</a>
+    <a href="#experience"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+    <a href="#skills"><i class="fas fa-tools"></i> SKILLS</a>
+    <a href="#cv"><i class="fas fa-file-alt"></i> CV</a>
+    <a href="#projects"><i class="fas fa-project-diagram"></i> PROJECTS</a>
+  </aside>
+
+  <!-- About Me Section -->
+  <section id="about" class="visible-section" tabindex="0" aria-label="About Me">
+    <div class="intro-text">
+      <h1>
+        Hello,<br />
+        <span>My name is Haniyeh Parsa, and I’m an aspiring computer science student with a strong passion for learning and personal growth.</span>
+      </h1>
+      <p>Over the past year, I’ve dedicated myself to improving my skills, exploring different areas of computer science, and challenging myself through self-directed projects.</p>
+      <p>I enjoy learning new things, but what drives me even more is the process of growing — pushing my limits, solving problems, and seeing real progress over time.</p>
+      <p>This portfolio reflects that journey, and I’m excited to continue learning, take on new challenges, and grow even further in a university environment.</p>
+    </div>
+  </section>
+
+  <!-- Main Layout for Other Sections -->
+  <div class="main-layout">
+    <div class="right-sections">
+      <!-- Experience -->
+      <section id="experience" tabindex="0" aria-label="Experience">
+        <h2>Experience</h2>
+        <div class="experience-timeline">
+          <!-- Work Experience -->
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-content">
+              <h3>English Teacher & Private Tutor</h3>
+              <p class="experience-date">2023 – Present</p>
+              <p>Developed personalized study plans to teach English to students of diverse ages and proficiency levels, enhancing their communication and writing skills. Fostered student confidence through tailored instruction and consistent feedback.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-content">
+              <h3>Café Staff (Short-Term)</h3>
+              <p class="experience-date">Summer 2022</p>
+              <p>Thrived in a fast-paced café environment, handling customer interactions, orders, and support tasks. Strengthened skills in communication, multitasking, and teamwork.</p>
+            </div>
+          </div>
+
+          <!-- Volunteering -->
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-content">
+              <h3>School Dental Program Volunteer</h3>
+              <p class="experience-date">2021</p>
+              <p>Supported dental health initiatives by assisting with varnish applications during school visits. Promoted oral hygiene awareness among children.</p>
+            </div>
+          </div>
+
+          <!-- Personal Achievements -->
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-content">
+              <h3>Personal Achievements & Development</h3>
+              <ul class="experience-list">
+                <li><strong>IELTS (English):</strong> Achieved a score of 6.5 after one month of intensive study.</li>
+                <li><strong>TOPIK (Korean):</strong> Scored 107; currently preparing for Level 3.</li>
+                <li><strong>Solo Travel:</strong> Independently traveled to Turkey for the TOPIK exam, embracing cultural and personal growth.</li>
+                <li><strong>Workshops:</strong>
+                  <ul>
+                    <li>"The History and Aesthetics of Korean Hanbok" – University of Tehran (Online)</li>
+                    <li>Microsoft AI Online Conference – Explored AI trends, ethics, and applications.</li>
+                  </ul>
+                </li>
+                <li><strong>Self-Directed Learning:</strong> Continuously pursued knowledge in languages, cultures, and technology.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="experience-content">
+              <h3>Languages</h3>
+              <ul class="experience-list">
+                <li><strong>Persian:</strong> Native</li>
+                <li><strong>English:</strong> Fluent (IELTS 6.5)</li>
+                <li><strong>Korean:</strong> Intermediate (TOPIK Score: 107; preparing for Level 3)</li>
+                <li><strong>Spanish:</strong> Beginner (A1)</li>
+                <li><strong>Chinese (Mandarin):</strong> Beginner (A1)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" tabindex="0" aria-label="Skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill"><i class="fab fa-python"></i><p>Python</p></div>
+          <div class="skill"><i class="fab fa-html5"></i><p>HTML</p></div>
+          <div class="skill"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+          <div class="skill"><i class="fab fa-js"></i><p>JavaScript</p></div>
+          <div class="skill"><i class="fas fa-database"></i><p>SQL (Basic)</p></div>
+          <div class="skill"><i class="fas fa-table"></i><p>Excel</p></div>
+          <div class="skill"><i class="fas fa-robot"></i><p>AI Tools</p></div>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv" tabindex="0" aria-label="CV">
+        <h2>CV <span style="font-size: 0.85rem; font-weight: normal;">(Click each one to view the certificate)</span></h2>
+        <ol>
+          <li><a href="certificates/Machine%20Learning.pdf" target="_blank">Machine Learning – Stanford University (Coursera)</a></li>
+          <li><a href="certificates/Python%20for%20Everybody.pdf" target="_blank">Python for Everybody – University of Michigan (Coursera)</a></li>
+          <li><a href="certificates/Web%20Design%20for%20Everybody.pdf" target="_blank">Web Design – University of Michigan (Coursera)</a></li>
+          <li><a href="certificates/Google%20Analytics%20Certification.pdf" target="_blank">Google Analytics Certification – Google</a></li>
+          <li><a href="certificates/Conversion%20Optimization%20Certification.pdf" target="_blank">Conversion Optimization – Google</a></li>
+          <li><a href="certificates/Introduction%20to%20Cybersecurity.pdf" target="_blank">Cybersecurity – Cisco Networking Academy</a></li>
+          <li><a href="certificates/Elements%20of%20AI.png" target="_blank">Elements of AI – University of Helsinki</a></li>
+          <li><a href="certificates/Build%20a%20Free%20Website%20with%20WordPress.pdf" target="_blank">WordPress – Coursera Project</a></li>
+          <li><a href="certificates/Getting%20Started%20with%20Microsoft%20Excel.pdf" target="_blank">Excel – Coursera Project</a></li>
+        </ol>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" tabindex="0" aria-label="Projects">
+        <h2>Projects <small>(Besides this portfolio)</small></h2>
+        <div class="project">
+          <h3>Coffee To-Do List</h3>
+          <p>A responsive to-do list app with task filtering, local storage, dark mode, and accessibility features, styled with a cozy Nescafé-inspired theme using HTML, CSS, and JavaScript.</p>
+          <ul>
+            <li><a href="https://bluespringg.github.io/to-do-list/" target="_blank">View Live Demo</a></li>
+            <li><a href="https://github.com/bluespringg/to-do-list/" target="_blank">View the Code on GitHub</a></li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Parrot’s Night Scape</h3>
+          <p>A simple flying game made with Scratch and JavaScript.</p>
+          <a href="https://scratch.mit.edu/projects/1103240101/" target="_blank">Play Game</a>
+        </div>
+        <div class="project">
+          <h3>The First Forest – Fan Page</h3>
+          <p>A fan website for a Chinese drama built using HTML and CSS, with design ideas generated using AI tools.</p>
+          <a href="https://bluespringg.github.io/the-first-forest/" target="_blank">View Project</a>
+        </div>
+        <div class="project">
+          <h3>Mood Booster App (Python)</h3>
+          <p>A motivational app recommending quotes and music based on mood, with code debugging assisted by AI tools.</p>
+          <ul>
+            <li><a href="https://colab.research.google.com/drive/1tILdMOqUn_TRbn66jHTo0HGMu5fG9KMU?usp=sharing" target="_blank">Try it live on Google Colab</a></li>
+            <li><a href="#" target="_blank">View the code on GitHub</a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="mailto:haniye.parsa933@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/989331202352" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://t.me/haniye_parsa" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
